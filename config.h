@@ -51,6 +51,7 @@ static const Rule rules[] = {
 	{ "zenity",          NULL,       NULL,            0,         1,          0,           0,         -1 },
 	{ "Virt-manager",    NULL,       NULL,            0,         1,          0,           0,         -1 },
 	{ "dolphin-emu",     NULL,       NULL,            0,         1,          0,           0,         -1 },
+	{ "qBittorrent",     NULL,       NULL,            0,         1,          0,           0,         -1 },
 	{ NULL,              NULL,       "Event Tester",  0,         0,          0,           1,         -1 }, /* xev */
 };
 
@@ -95,6 +96,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_m,          spawn,            SHCMD ("amixer sset Master $(amixer get Master | grep -q '\\[on\\]' && echo 'mute' || echo 'unmute')") },
 	{ MODKEY|ControlMask,           XK_m,          spawn,            SHCMD ("~/Bin/sw-out") },
 	{ MODKEY|ControlMask,           XK_i,          spawn,            SHCMD ("pgrep -x 'picom' > /dev/null && killall picom || picom -b") },
+	{ MODKEY|ControlMask|ShiftMask, XK_w,          spawn,            SHCMD ("sudo virsh start Gaming-VM") },
 	{ MODKEY,                       XK_b,          togglebar,        {0} },
 	{ MODKEY,                       XK_k,          focusstack,       {.i = +1 } },
 	{ MODKEY,                       XK_j,          focusstack,       {.i = -1 } },
