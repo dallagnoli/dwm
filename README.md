@@ -52,7 +52,7 @@ Clone o repositório, compile e instale:
 
 ```sh
 git clone https://github.com/gabrieldallagnoli/dwm && \
-cd dwm-titus && \
+cd dwm && \
 sudo make clean install
 ```
 
