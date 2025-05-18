@@ -53,8 +53,7 @@
 		    != 1)
 			return NULL;
 
-		total = total / 1024 / 1024; // Convert to GiB and round down to nearest integer
-		return bprintf("%juG", total);
+		return fmt_human(total * 1024, 1024);
 	}
 
 	const char *
@@ -71,8 +70,8 @@
 		           &total, &free, &buffers, &buffers, &cached) != 5)
 			return NULL;
 
-		used = (total - free - buffers - cached) / 1024 / 1024; // Convert to GiB and round down to nearest integer
-		return bprintf("%juG", used);
+		used = (total - free - buffers - cached);
+		return fmt_human(used * 1024, 1024);
 	}
 #elif defined(__OpenBSD__)
 	#include <stdlib.h>
