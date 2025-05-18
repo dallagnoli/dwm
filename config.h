@@ -94,7 +94,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_equal,      spawn,            SHCMD ("amixer sset Master 5%+ unmute") },
 	{ MODKEY,                       XK_minus,      spawn,            SHCMD ("amixer sset Master 5%- unmute") },
 	{ MODKEY,                       XK_m,          spawn,            SHCMD ("amixer sset Master $(amixer get Master | grep -q '\\[on\\]' && echo 'mute' || echo 'unmute')") },
-	{ MODKEY|ControlMask,           XK_m,          spawn,            SHCMD ("~/Bin/sw-out") },
+	{ MODKEY|ControlMask,           XK_m,          spawn,            SHCMD ("sink='alsa_output.pci-0000_00_1f.3.analog-stereo'; port=$(pactl list sinks | awk -v s=\"$sink\" '$0~\"Name: \"s{f=1}f&&/Active Port:/{print $3;exit}'); if [ \"$port\" = \"analog-output-headphones\" ]; then pactl set-sink-port \"$sink\" analog-output-lineout; else pactl set-sink-port \"$sink\" analog-output-headphones; fi") },
 	{ MODKEY|ControlMask,           XK_i,          spawn,            SHCMD ("pgrep -x 'picom' > /dev/null && killall picom || picom -b") },
 	{ MODKEY|ControlMask|ShiftMask, XK_w,          spawn,            SHCMD ("sudo virsh start Gaming-VM") },
 	{ MODKEY,                       XK_b,          togglebar,        {0} },
