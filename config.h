@@ -97,6 +97,8 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_m,          spawn,            SHCMD ("sink='alsa_output.pci-0000_00_1f.3.analog-stereo'; port=$(pactl list sinks | awk -v s=\"$sink\" '$0~\"Name: \"s{f=1}f&&/Active Port:/{print $3;exit}'); if [ \"$port\" = \"analog-output-headphones\" ]; then pactl set-sink-port \"$sink\" analog-output-lineout; else pactl set-sink-port \"$sink\" analog-output-headphones; fi") },
 	{ MODKEY|ControlMask,           XK_i,          spawn,            SHCMD ("pgrep -x 'picom' > /dev/null && killall picom || picom -b") },
 	{ MODKEY|ControlMask|ShiftMask, XK_w,          spawn,            SHCMD ("sudo virsh start Gaming-VM") },
+	{ MODKEY|ControlMask|ShiftMask, XK_r,          spawn,            SHCMD ("systemctl reboot") },
+	{ MODKEY|ControlMask|ShiftMask, XK_s,          spawn,            SHCMD ("systemctl poweroff") },
 	{ MODKEY,                       XK_b,          togglebar,        {0} },
 	{ MODKEY,                       XK_k,          focusstack,       {.i = +1 } },
 	{ MODKEY,                       XK_j,          focusstack,       {.i = -1 } },
