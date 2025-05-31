@@ -41,7 +41,7 @@ static const char *const autostart[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5" };
+static const char *tags[] = { "", "", "󰊖", "", "" };
 
 static const Rule rules[] = {
 	/* class             instance    title            tags mask  isfloating  isterminal   noswallow  monitor */
@@ -65,8 +65,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "||",      tile },    /* first entry is default */
-	{ "<>",      NULL },    /* no layout function means floating behavior */
+	{ "",      tile },    /* first entry is default */
+	{ "",      NULL },    /* no layout function means floating behavior */
 };
 
 /* key definitions */
