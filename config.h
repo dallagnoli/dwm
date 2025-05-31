@@ -87,8 +87,8 @@ static const char *terminal[] = { "alacritty", NULL };
 #include "movestack.c"
 static const Key keys[] = {
 	/* modifier                     key            function          argument */
-	{ MODKEY,                       XK_BackSpace,  spawn,            {.v = launcher } },
-	{ MODKEY,                       XK_Return,     spawn,            {.v = terminal } },
+	{ MODKEY,                       XK_r,          spawn,            {.v = launcher } },
+	{ MODKEY,                       XK_x,          spawn,            {.v = terminal } },
 	{ MODKEY,                       XK_p,          spawn,            SHCMD ("flameshot full -p ~/Imagens/Screenshots") },
 	{ MODKEY|ShiftMask,             XK_p,          spawn,            SHCMD ("flameshot gui -p ~/Imagens/Screenshots") },
 	{ MODKEY|ControlMask,           XK_p,          spawn,            SHCMD ("flameshot gui --clipboard") },
