@@ -12,6 +12,8 @@ static const int showsystray             = 1;        /* 0 means no systray */
 static const int swallowfloating         = 1;        /* 1 means swallow floating windows by default */
 static const int showbar                 = 1;        /* 0 means no bar */
 static const int topbar                  = 1;        /* 0 means bottom bar */
+#define ICONSIZE                         16          /* icon size */
+#define ICONSPACING                      8           /* space between icon and title */
 static const char *fonts[]               = { "MesloLGS Nerd Font Mono:size=16", "NotoColorEmoji:pixelsize=16:antialias=true:autohint=true" };
 static const char normfg[]               = "#d8dee9";
 static const char normbg[]               = "#2e3440";
@@ -39,7 +41,7 @@ static const char *const autostart[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6" };
 
 static const Rule rules[] = {
 	/* class             instance    title            tags mask  isfloating  isterminal   noswallow  monitor */
@@ -63,8 +65,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "",      tile },    /* first entry is default */
+	{ "",      NULL },    /* no layout function means floating behavior */
 };
 
 /* key definitions */
@@ -98,7 +100,7 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_i,          spawn,            SHCMD ("pgrep -x 'picom' > /dev/null && killall picom || picom -b") },
 	{ MODKEY|ControlMask|ShiftMask, XK_r,          spawn,            SHCMD ("systemctl reboot") },
 	{ MODKEY|ControlMask|ShiftMask, XK_s,          spawn,            SHCMD ("systemctl poweroff") },
-	{ MODKEY,                       XK_t,          spawn,            SHCMD ("xdg-open .") },
+	{ MODKEY,                       XK_e,          spawn,            SHCMD ("xdg-open .") },
 	{ MODKEY,                       XK_b,          spawn,            SHCMD ("xdg-open https://") },
 	{ MODKEY|ControlMask,           XK_b,          togglebar,        {0} },
 	{ MODKEY,                       XK_k,          focusstack,       {.i = +1 } },
@@ -114,8 +116,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_o,          setcfact,         {.f =  0.00} },
 	{ MODKEY,                       XK_Tab,        view,             {0} },
 	{ MODKEY,                       XK_c,          killclient,       {0} },
-	{ MODKEY,                       XK_d,          setlayout,        {.v = &layouts[0]} },
-	{ MODKEY,                       XK_e,          setlayout,        {.v = &layouts[1]} },
+	{ MODKEY,                       XK_t,          setlayout,        {.v = &layouts[0]} },
+	{ MODKEY,                       XK_f,          setlayout,        {.v = &layouts[1]} },
 	{ MODKEY,                       XK_q,          togglefullscr,    {0} },
 	{ MODKEY|ShiftMask,             XK_e,          togglefloating,   {0} },
 	{ MODKEY,                       XK_comma,      focusmon,         {.i = -1 } },
@@ -128,6 +130,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_3,                            2)
 	TAGKEYS(                        XK_4,                            3)
 	TAGKEYS(                        XK_5,                            4)
+	TAGKEYS(                        XK_6,                            5)
 	{ MODKEY|ShiftMask,             XK_BackSpace,  quit,             {0} },
 };
 
