@@ -41,7 +41,7 @@ static const char *const autostart[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "󰊖", "", "" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6" };
 
 static const Rule rules[] = {
 	/* class             instance    title            tags mask  isfloating  isterminal   noswallow  monitor */
@@ -65,8 +65,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "",      tile },    /* first entry is default */
-	{ "",      NULL },    /* no layout function means floating behavior */
+	{ "[]=",      tile },    /* first entry is default */
+	{ "><>",      NULL },    /* no layout function means floating behavior */
 };
 
 /* key definitions */
@@ -87,8 +87,8 @@ static const char *terminal[] = { "alacritty", NULL };
 #include "movestack.c"
 static const Key keys[] = {
 	/* modifier                     key            function          argument */
-	{ MODKEY,                       XK_BackSpace,  spawn,            {.v = launcher } },
-	{ MODKEY,                       XK_Return,     spawn,            {.v = terminal } },
+	{ MODKEY,                       XK_r,          spawn,            {.v = launcher } },
+	{ MODKEY,                       XK_x,          spawn,            {.v = terminal } },
 	{ MODKEY,                       XK_p,          spawn,            SHCMD ("flameshot full -p ~/Imagens/Screenshots") },
 	{ MODKEY|ShiftMask,             XK_p,          spawn,            SHCMD ("flameshot gui -p ~/Imagens/Screenshots") },
 	{ MODKEY|ControlMask,           XK_p,          spawn,            SHCMD ("flameshot gui --clipboard") },
@@ -114,10 +114,9 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_h,          setcfact,         {.f = -0.25} },
 	{ MODKEY|ShiftMask,             XK_o,          setcfact,         {.f =  0.00} },
 	{ MODKEY,                       XK_Tab,        view,             {0} },
-	{ MODKEY,                       XK_c,          killclient,       {0} },
-	{ MODKEY,                       XK_t,          setlayout,        {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,          setlayout,        {.v = &layouts[1]} },
-	{ MODKEY,                       XK_q,          togglefullscr,    {0} },
+	{ MODKEY,                       XK_q,          killclient,       {0} },
+	{ MODKEY,                       XK_space,      setlayout,        {0} },
+	{ MODKEY,                       XK_f,          togglefullscr,    {0} },
 	{ MODKEY|ShiftMask,             XK_e,          togglefloating,   {0} },
 	{ MODKEY,                       XK_comma,      focusmon,         {.i = -1 } },
 	{ MODKEY,                       XK_period,     focusmon,         {.i = +1 } },       
