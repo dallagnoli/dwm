@@ -41,7 +41,7 @@ static const char *const autostart[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6" };
+static const char *tags[] = { "", "", "󰊖", "", "" };
 
 static const Rule rules[] = {
 	/* class             instance    title            tags mask  isfloating  isterminal   noswallow  monitor */
@@ -65,8 +65,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "",      tile },    /* first entry is default */
+	{ "",      NULL },    /* no layout function means floating behavior */
 };
 
 /* key definitions */
@@ -128,13 +128,13 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_3,                            2)
 	TAGKEYS(                        XK_4,                            3)
 	TAGKEYS(                        XK_5,                            4)
-	TAGKEYS(                        XK_6,                            5)
 	{ MODKEY|ShiftMask,             XK_BackSpace,  quit,             {0} },
 };
 
 /* button definitions */
 static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
+	{ ClkStatusText,        0,              Button2,        spawn,          SHCMD ("pavucontrol") },
 	{ ClkClientWin,         MODKEY,         Button1,        moveorplace,    {.i = 2} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
